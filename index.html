@@ -661,7 +661,7 @@
     </div>
   </div>
 
-  <script>
+<script>
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -669,11 +669,11 @@
       const email = document.getElementById('email').value;
       const mensaje = document.getElementById('mensaje').value;
 
-      // Construir URL de Gmail con los parámetros
-      const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=safestock.web@gmail.com&su=${encodeURIComponent('Consulta de ' + nombre)}&body=${encodeURIComponent(mensaje + '\n\nDe: ' + nombre + '\nEmail: ' + email)}`;
+      // Construir mailto que abre la app de correo nativa
+      const mailtoURL = `mailto:safestock.web@gmail.com?subject=${encodeURIComponent('Consulta de ' + nombre)}&body=${encodeURIComponent(mensaje + '\n\nDe: ' + nombre + '\nEmail: ' + email)}`;
       
-      // Abrir Gmail en una nueva pestaña
-      window.open(gmailURL, '_blank');
+      // Abrir la aplicación de correo
+      window.location.href = mailtoURL;
     });
   </script>
 </body>
